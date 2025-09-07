@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>upGrad AI Marketing Automation</title>
+    <link rel="stylesheet" href="/MI/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-brand">
+                <div class="logo">
+                    <span class="logo-text">upGrad</span>
+                    <span class="logo-subtitle">AI Marketing</span>
+                </div>
+            </div>
+            <div class="header-info">
+                <div class="current-time">
+                    <span class="time-label">Current Time:</span>
+                    <span class="time-value">Saturday, September 06, 2025, 11:47 PM IST</span>
+                </div>
+                <div class="hackathon-countdown">
+                    <span class="countdown-label">Hackathon Deadline:</span>
+                    <span class="countdown-value">25 hours remaining</span>
+                </div>
+                <div class="system-status">
+                    <span class="status-label">System Status:</span>
+                    <span class="health-indicator" id="health-indicator">🔄 Connecting...</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <button class="nav-link active" data-page="dashboard">
+                            <span class="nav-icon">📊</span>
+                            <span class="nav-text">Dashboard</span>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-page="campaign-generator">
+                            <span class="nav-icon">🚀</span>
+                            <span class="nav-text">Campaign Generator</span>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-page="market-intelligence">
+                            <span class="nav-icon">📈</span>
+                            <span class="nav-text">Market Intelligence</span>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-page="analytics">
+                            <span class="nav-icon">📋</span>
+                            <span class="nav-text">Analytics</span>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-page="settings">
+                            <span class="nav-icon">⚙️</span>
+                            <span class="nav-text">Settings</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Home Page -->
+            <section id="dashboard" class="page active">
+                <div class="page-header">
+                    <h1>Marketing Dashboard</h1>
+                    <p>Welcome to your AI-powered marketing automation hub</p>
+                </div>
+
+                <!-- KPIs Section -->
+                <div class="kpis-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon">🎯</div>
+                        <div class="kpi-content">
+                            <div class="kpi-value">24</div>
+                            <div class="kpi-label">Total Campaigns</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">🏙️</div>
+                        <div class="kpi-content">
+                            <div class="kpi-value">8</div>
+                            <div class="kpi-label">Active Markets</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">🤖</div>
+                        <div class="kpi-content">
+                            <div class="kpi-value">87%</div>
+                            <div class="kpi-label">AI Optimization Score</div>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-icon">💰</div>
+                        <div class="kpi-content">
+                            <div class="kpi-value">4.2x</div>
+                            <div class="kpi-label">Current ROI</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Market Trends Ticker -->
+                <div class="trends-ticker">
+                    <div class="ticker-label">🔥 Live Market Trends:</div>
+                    <div class="ticker-content">
+                        <span class="ticker-item">IT Slowdown: -10% Aug 2025</span>
+                        <span class="ticker-item">AI/ML Growth: +25% YoY hiring</span>
+                        <span class="ticker-item">Infosys: 20,000 freshers FY26</span>
+                        <span class="ticker-item">TECHSPO Delhi: Sept 24-25, 2025</span>
+                        <span class="ticker-item">EdTech Market: USD 29B by 2030</span>
+                    </div>
+                </div>
+
+                <!-- Campaign Performance Chart -->
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Campaign Performance by City</h2>
+                        <p>CTR comparison across different campaign types</p>
+                    </div>
+                    <div class="chart-container" style="position: relative; height: 400px;">
+                        <canvas id="ctrChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="actions-grid">
+                        <button class="action-card" onclick="navigateToPage('campaign-generator')">
+                            <div class="action-icon">✨</div>
+                            <div class="action-title">Generate AI Campaign</div>
+                            <div class="action-desc">Create personalized campaigns with AI</div>
+                        </button>
+                        <button class="action-card" onclick="navigateToPage('market-intelligence')">
+                            <div class="action-icon">📊</div>
+                            <div class="action-title">Check Market Trends</div>
+                            <div class="action-desc">View live hiring and industry data</div>
+                        </button>
+                        <button class="action-card" onclick="navigateToPage('analytics')">
+                            <div class="action-icon">📈</div>
+                            <div class="action-title">View Analytics</div>
+                            <div class="action-desc">Deep dive into performance metrics</div>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Campaign Generator Page -->
+            <section id="campaign-generator" class="page">
+                <div class="page-header">
+                    <h1>AI Campaign Generator</h1>
+                    <p>Create personalized marketing campaigns powered by AI and market intelligence</p>
+                </div>
+
+                <div class="generator-layout">
+                    <div class="generator-form">
+                        <div class="form-section">
+                            <h3>Campaign Configuration</h3>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="course-select">Course Type</label>
+                                <select id="course-select" class="form-control">
+                                    <option value="">Select a course...</option>
+                                    <option value="AI/ML">AI/ML</option>
+                                    <option value="Generative AI">Generative AI</option>
+                                    <option value="Data Science">Data Science</option>
+                                    <option value="MSc Finance">MSc Finance</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="city-select">Target City</label>
+                                <select id="city-select" class="form-control">
+                                    <option value="">Select a city...</option>
+                                    <option value="Bangalore">Bangalore</option>
+                                    <option value="Mumbai">Mumbai</option>
+                                    <option value="Delhi-NCR">Delhi-NCR</option>
+                                    <option value="Hyderabad">Hyderabad</option>
+                                    <option value="Chennai">Chennai</option>
+                                    <option value="Pune">Pune</option>
+                                    <option value="Ahmedabad">Ahmedabad</option>
+                                    <option value="Kolkata">Kolkata</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="campaign-type">Campaign Type</label>
+                                <select id="campaign-type" class="form-control">
+                                    <option value="">Select campaign type...</option>
+                                    <option value="Email">Email Campaign</option>
+                                    <option value="Social Media">Social Media Campaign</option>
+                                    <option value="Display Ads">Display Ads</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="trend-integration" class="checkbox">
+                                    <span class="checkmark"></span>
+                                    Integrate Current Market Trends
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Localization Level</label>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" name="localization" value="basic" class="radio">
+                                        <span class="radio-mark"></span>
+                                        Basic
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="localization" value="advanced" class="radio">
+                                        <span class="radio-mark"></span>
+                                        Advanced with Regional Language
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button id="generate-campaign" class="btn btn--primary btn--lg btn--full-width">
+                                🚀 Generate AI Campaign
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="generator-results">
+                        <div id="campaign-results" class="results-container hidden">
+                            <h3>Generated Campaign</h3>
+                            <div class="results-tabs">
+                                <button class="tab-btn active" data-tab="email">Email</button>
+                                <button class="tab-btn" data-tab="social">Social Media</button>
+                                <button class="tab-btn" data-tab="localized">Localized</button>
+                                <button class="tab-btn" data-tab="predictions">Predictions</button>
+                            </div>
+                            
+                            <div id="email-tab" class="tab-content active">
+                                <div class="email-preview">
+                                    <div class="email-subject">
+                                        <label>Subject Line:</label>
+                                        <div id="email-subject-text" class="generated-text"></div>
+                                    </div>
+                                    <div class="email-body">
+                                        <label>Email Body:</label>
+                                        <div id="email-body-text" class="generated-text"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="social-tab" class="tab-content">
+                                <div class="social-preview">
+                                    <label>Social Media Post:</label>
+                                    <div id="social-post-text" class="generated-text"></div>
+                                </div>
+                            </div>
+
+                            <div id="localized-tab" class="tab-content">
+                                <div class="localized-preview">
+                                    <label>Regional Language Version:</label>
+                                    <div id="localized-text" class="generated-text"></div>
+                                </div>
+                            </div>
+
+                            <div id="predictions-tab" class="tab-content">
+                                <div class="predictions-grid">
+                                    <div class="prediction-card">
+                                        <div class="prediction-value" id="predicted-ctr">-</div>
+                                        <div class="prediction-label">Expected CTR</div>
+                                    </div>
+                                    <div class="prediction-card">
+                                        <div class="prediction-value" id="predicted-roi">-</div>
+                                        <div class="prediction-label">Predicted ROI</div>
+                                    </div>
+                                    <div class="prediction-card">
+                                        <div class="prediction-value" id="predicted-cost">-</div>
+                                        <div class="prediction-label">Cost per Conversion</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Market Intelligence Page -->
+            <section id="market-intelligence" class="page">
+                <div class="page-header">
+                    <h1>Market Intelligence</h1>
+                    <p>Real-time hiring trends, tech events, and market insights</p>
+                </div>
+
+                <!-- Market Trends Grid -->
+                <div class="trends-grid">
+                    <div class="trend-card high-impact">
+                        <div class="trend-header">
+                            <span class="trend-title">IT Hiring Slowdown</span>
+                            <span class="trend-impact high">High Impact</span>
+                        </div>
+                        <div class="trend-value">-10% in Aug 2025</div>
+                        <div class="trend-source">Source: Economic Times</div>
+                    </div>
+                    <div class="trend-card very-high-impact">
+                        <div class="trend-header">
+                            <span class="trend-title">AI/ML Growth</span>
+                            <span class="trend-impact very-high">Very High</span>
+                        </div>
+                        <div class="trend-value">+25% YoY Hiring</div>
+                        <div class="trend-source">Source: TechGig</div>
+                    </div>
+                    <div class="trend-card medium-impact">
+                        <div class="trend-header">
+                            <span class="trend-title">Infosys Hiring</span>
+                            <span class="trend-impact medium">Medium</span>
+                        </div>
+                        <div class="trend-value">20,000 Freshers FY26</div>
+                        <div class="trend-source">Source: Company Report</div>
+                    </div>
+                    <div class="trend-card medium-impact">
+                        <div class="trend-header">
+                            <span class="trend-title">TCS Hiring</span>
+                            <span class="trend-impact medium">Medium</span>
+                        </div>
+                        <div class="trend-value">18,000 Freshers</div>
+                        <div class="trend-source">Source: Company Report</div>
+                    </div>
+                    <div class="trend-card medium-impact">
+                        <div class="trend-header">
+                            <span class="trend-title">TECHSPO Delhi</span>
+                            <span class="trend-impact medium">Medium</span>
+                        </div>
+                        <div class="trend-value">Sept 24-25, 2025</div>
+                        <div class="trend-source">Source: Event Data</div>
+                    </div>
+                    <div class="trend-card very-high-impact">
+                        <div class="trend-header">
+                            <span class="trend-title">EdTech Growth</span>
+                            <span class="trend-impact very-high">Very High</span>
+                        </div>
+                        <div class="trend-value">$29B by 2030</div>
+                        <div class="trend-source">Source: IBEF</div>
+                    </div>
+                </div>
+
+                <!-- City Growth Map -->
+                <div class="map-section">
+                    <h3>Tier-1 Cities Growth Overview</h3>
+                    <div class="cities-grid">
+                        <div class="city-card">
+                            <div class="city-name">Bangalore</div>
+                            <div class="city-stats">
+                                <div class="stat">
+                                    <span class="stat-label">Population:</span>
+                                    <span class="stat-value">12.3M</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">IT Companies:</span>
+                                    <span class="stat-value">4000+</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Avg Salary:</span>
+                                    <span class="stat-value">₹12-25 LPA</span>
+                                </div>
+                                <div class="stat growth-positive">
+                                    <span class="stat-label">Growth:</span>
+                                    <span class="stat-value">+16%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="city-card">
+                            <div class="city-name">Mumbai</div>
+                            <div class="city-stats">
+                                <div class="stat">
+                                    <span class="stat-label">Population:</span>
+                                    <span class="stat-value">20.4M</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">IT Companies:</span>
+                                    <span class="stat-value">2500+</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Avg Salary:</span>
+                                    <span class="stat-value">₹10-22 LPA</span>
+                                </div>
+                                <div class="stat growth-positive">
+                                    <span class="stat-label">Growth:</span>
+                                    <span class="stat-value">+8%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="city-card">
+                            <div class="city-name">Chennai</div>
+                            <div class="city-stats">
+                                <div class="stat">
+                                    <span class="stat-label">Population:</span>
+                                    <span class="stat-value">11.5M</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">IT Companies:</span>
+                                    <span class="stat-value">1800+</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Avg Salary:</span>
+                                    <span class="stat-value">₹8-18 LPA</span>
+                                </div>
+                                <div class="stat growth-positive">
+                                    <span class="stat-label">Growth:</span>
+                                    <span class="stat-value">+18%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="city-card">
+                            <div class="city-name">Hyderabad</div>
+                            <div class="city-stats">
+                                <div class="stat">
+                                    <span class="stat-label">Population:</span>
+                                    <span class="stat-value">10.2M</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">IT Companies:</span>
+                                    <span class="stat-value">2000+</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Avg Salary:</span>
+                                    <span class="stat-value">₹9-20 LPA</span>
+                                </div>
+                                <div class="stat growth-positive">
+                                    <span class="stat-label">Growth:</span>
+                                    <span class="stat-value">+13%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Feed -->
+                <div class="news-section">
+                    <h3>Latest Industry News</h3>
+                    <div class="news-feed">
+                        <div class="news-item">
+                            <div class="news-header">
+                                <span class="news-title">Infosys Plans 20,000 Fresh Hires for FY26</span>
+                                <span class="news-time">2 hours ago</span>
+                            </div>
+                            <div class="news-source">Economic Times</div>
+                            <div class="news-impact high">High Impact</div>
+                        </div>
+                        <div class="news-item">
+                            <div class="news-header">
+                                <span class="news-title">AI/ML Job Postings Surge 25% YoY in India</span>
+                                <span class="news-time">4 hours ago</span>
+                            </div>
+                            <div class="news-source">TechGig</div>
+                            <div class="news-impact very-high">Very High Impact</div>
+                        </div>
+                        <div class="news-item">
+                            <div class="news-header">
+                                <span class="news-title">TECHSPO Delhi 2025 Registrations Open</span>
+                                <span class="news-time">6 hours ago</span>
+                            </div>
+                            <div class="news-source">Event Update</div>
+                            <div class="news-impact medium">Medium Impact</div>
+                        </div>
+                        <div class="news-item">
+                            <div class="news-header">
+                                <span class="news-title">EdTech Market to Touch $29B by 2030</span>
+                                <span class="news-time">1 day ago</span>
+                            </div>
+                            <div class="news-source">IBEF Report</div>
+                            <div class="news-impact high">High Impact</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Competitor Analysis -->
+                <div class="competitor-section">
+                    <h3>Competitor Market Share</h3>
+                    <div class="chart-container" style="position: relative; height: 400px;">
+                        <canvas id="competitorChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Page -->
+            <section id="analytics" class="page">
+                <div class="page-header">
+                    <h1>Campaign Analytics</h1>
+                    <p>Deep insights into campaign performance and AI optimization results</p>
+                </div>
+
+                <!-- Performance Overview -->
+                <div class="analytics-overview">
+                    <div class="overview-card">
+                        <div class="overview-title">Campaign Performance</div>
+                        <div class="overview-chart">
+                            <div class="chart-container" style="position: relative; height: 300px;">
+                                <canvas id="performanceChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-card">
+                        <div class="overview-title">ROI Trends</div>
+                        <div class="overview-chart">
+                            <div class="chart-container" style="position: relative; height: 300px;">
+                                <canvas id="roiChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Metrics -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-title">Conversion Rate Improvement</span>
+                        </div>
+                        <div class="metric-value positive">+340%</div>
+                        <div class="metric-subtitle">vs Generic Campaigns</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-title">Cost Reduction</span>
+                        </div>
+                        <div class="metric-value positive">-62%</div>
+                        <div class="metric-subtitle">Cost per Conversion</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-title">Market Coverage</span>
+                        </div>
+                        <div class="metric-value">100%</div>
+                        <div class="metric-subtitle">Tier-1 Cities</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-title">Users Reached</span>
+                        </div>
+                        <div class="metric-value">2.1M</div>
+                        <div class="metric-subtitle">Total Impressions</div>
+                    </div>
+                </div>
+
+                <!-- City Performance -->
+                <div class="city-performance">
+                    <h3>City-wise Campaign Performance</h3>
+                    <div class="chart-container" style="position: relative; height: 400px;">
+                        <canvas id="cityPerformanceChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Export Options -->
+                <div class="export-section">
+                    <h3>Export Data</h3>
+                    <div class="export-buttons">
+                        <button class="btn btn--outline" onclick="exportData('csv')">Export as CSV</button>
+                        <button class="btn btn--outline" onclick="exportData('pdf')">Export as PDF</button>
+                        <button class="btn btn--outline" onclick="exportData('excel')">Export as Excel</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Page -->
+            <section id="settings" class="page">
+                <div class="page-header">
+                    <h1>Settings</h1>
+                    <p>Configure your marketing automation platform</p>
+                </div>
+
+                <!-- Brand Configuration -->
+                <div class="settings-section">
+                    <h3>Brand Configuration</h3>
+                    <div class="brand-config">
+                        <div class="config-row">
+                            <label class="config-label">Primary Color</label>
+                            <div class="config-value">
+                                <div class="color-preview" style="background-color: #007BFF;"></div>
+                                <span>#007BFF</span>
+                            </div>
+                        </div>
+                        <div class="config-row">
+                            <label class="config-label">Secondary Color</label>
+                            <div class="config-value">
+                                <div class="color-preview" style="background-color: #FFFFFF; border: 1px solid #ddd;"></div>
+                                <span>#FFFFFF</span>
+                            </div>
+                        </div>
+                        <div class="config-row">
+                            <label class="config-label">Accent Color</label>
+                            <div class="config-value">
+                                <div class="color-preview" style="background-color: #FF6B35;"></div>
+                                <span>#FF6B35</span>
+                            </div>
+                        </div>
+                        <div class="config-row">
+                            <label class="config-label">Brand Tone</label>
+                            <div class="config-value">Professional, Motivational, Career-focused</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API Integration Status -->
+                <div class="settings-section">
+                    <h3>API Integration Status</h3>
+                    <div class="api-status">
+                        <div class="api-item">
+                            <span class="api-name">Gemini API</span>
+                            <span class="status status--success">Connected</span>
+                        </div>
+                        <div class="api-item">
+                            <span class="api-name">Stable Diffusion</span>
+                            <span class="status status--success">Connected</span>
+                        </div>
+                        <div class="api-item">
+                            <span class="api-name">Helsinki NLP</span>
+                            <span class="status status--success">Connected</span>
+                        </div>
+                        <div class="api-item">
+                            <span class="api-name">Web Scraping</span>
+                            <span class="status status--success">Active</span>
+                        </div>
+                        <div class="api-item">
+                            <span class="api-name">Analytics Engine</span>
+                            <span class="status status--success">Running</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Localization Preferences -->
+                <div class="settings-section">
+                    <h3>Localization Preferences</h3>
+                    <div class="localization-settings">
+                        <div class="setting-item">
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked class="checkbox">
+                                <span class="checkmark"></span>
+                                Enable Regional Language Translation
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked class="checkbox">
+                                <span class="checkmark"></span>
+                                Cultural Context Integration
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked class="checkbox">
+                                <span class="checkmark"></span>
+                                Local Events and Festivals
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Automation Rules -->
+                <div class="settings-section">
+                    <h3>Campaign Automation Rules</h3>
+                    <div class="automation-rules">
+                        <div class="rule-item">
+                            <div class="rule-title">Auto-generate campaigns for trending topics</div>
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="rule-item">
+                            <div class="rule-title">Schedule campaigns for optimal timing</div>
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="rule-item">
+                            <div class="rule-title">A/B test subject lines automatically</div>
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="rule-item">
+                            <div class="rule-title">Pause low-performing campaigns</div>
+                            <label class="toggle">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance Thresholds -->
+                <div class="settings-section">
+                    <h3>Performance Thresholds</h3>
+                    <div class="threshold-settings">
+                        <div class="threshold-item">
+                            <label class="form-label">Minimum CTR (%)</label>
+                            <input type="number" class="form-control" value="0.15" step="0.01">
+                        </div>
+                        <div class="threshold-item">
+                            <label class="form-label">Target ROI (x)</label>
+                            <input type="number" class="form-control" value="3.0" step="0.1">
+                        </div>
+                        <div class="threshold-item">
+                            <label class="form-label">Max Cost per Conversion (₹)</label>
+                            <input type="number" class="form-control" value="300" step="10">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Loading Modal -->
+    <div id="loading-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="loading-content">
+                <div class="loading-spinner"></div>
+                <div class="loading-text">Generating AI-powered campaign...</div>
+                <div class="progress-indicator">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="success-icon">✅</div>
+            <div class="success-text">Campaign generated successfully!</div>
+            <button class="btn btn--primary" onclick="closeModal('success-modal')">Continue</button>
+        </div>
+    </div>
+
+    <script src="/MI/app.js"></script>
+    <script src="/backend/dashboard_connector.js"></script>
+</body>
+</html>
